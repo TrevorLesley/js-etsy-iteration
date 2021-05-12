@@ -26,14 +26,15 @@ newPriceRange = [];
 function priceRange(fullArray) {
 
     for (let j = 0; j < fullArray.length; j++) {
-        // console.log("console log before if", fullArray[j])
-        // console.log("full array", fullArray)
+        // console.log("fullArray", fullArray[j])
         // console.log("max", max)
         // console.log(typeof max);
-        // console.log(items.price, "price")
+        // console.log("items.price" items.price)
+
+        //Use if statement to look at price of every item in list and compare 
+        // the price to see if it needs to be added into new array
         if (fullArray[j].price <= max && fullArray[j].price >= least) {
-            console.log("console log after if", fullArray.price);
-            // take it out of the array
+            // console.log("console log after if", fullArray.price);
             newPriceRange.push(fullArray[j]);
         }
     } return newPriceRange;
@@ -47,24 +48,47 @@ console.log("Items that cost between $14.00USD and $18.00 USD: ", result);
 
 
 
+// let britishPound = "";
+
+// title = items[j].title
+// price = items[j].price
 
 
-// "Items that cost between $14.00 USD and $18.00 USD:"
-//   [
-//    {
-//       title: "1970s Coors Banquet Glass Beer Pitcher",
-//       ...
-//    },
-//    {
-//       title: "The Three Broomsticks Customizable Beer Stein Mug, Harry Potter Inspired, hogsmeade village, harry potter gift, three broomsticks mug",
-//       ...
-//    },
-//    {
-//       title: "Hand Painted Colorful Feather Glass",
-//       ...
-//    },
-//    {
-//       title: "Groomsman Gifts - Bottle Opener Credit Card Sized PERSONALIZED - FREE SHIPPING",
-//       ...
-//    }
-//   ]
+// function findGBP(fullArray) {
+//     // for (let j = 0; j < fullArray.length; j++) {
+//     //     title = items[j].title
+//     //     price = items[j].price
+//     //     if (fullArray[j].currency_code == 'GBP') {
+//     //         britishPound = title.concat(price);
+//     //     }
+
+//     // }
+//     // console.log(britishPound, "British Pound")
+//     // return britishPound;
+//     items.forEach(function (fullArray) {
+//         if (fullArray[j].currency_code == 'GBP') {
+//         console.log(fullArray.title + " costs " + fullArray.price);
+//     })
+//     console.log(britishPound, "British Pound")
+//     return britishPound;
+// }
+
+// var result1 = findGBP(items);
+// findGBP(items);
+// console.log(result1);
+
+// 1970s Schlitz Malt Liquor Glass Beer Pitcher costs £18
+
+
+
+const findGBP = items.filter(function (item) {
+
+    return item.currency_code === "GBP";
+});
+
+currencyCodeArray.forEach(function (item) {
+    console.log(item.title + " costs " + item.price);
+});
+
+/* Forgot I'm supposed to be using the four methods to write these functions,
+fixed it.*/
