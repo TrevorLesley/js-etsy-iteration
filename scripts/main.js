@@ -18,89 +18,26 @@ each array. Then, using the variable associated with the first function,
 I defined another variable expression to reduce the array of the prices to the 
 total sum, and then divided that sum by the length of the original array.*/
 
-// let max = 18;
-// let least = 14;
-// newPriceRange = [];
 
+const priceOfAllItems2 = items
+    .reduce(function (acc, item) {
+        return acc + item.price;
+    }, 0);
 
-// function priceRange(fullArray) {
+//==============Items bought with £==================
 
-//     for (let j = 0; j < fullArray.length; j++) {
-//         // console.log("fullArray", fullArray[j])
-//         // console.log("max", max)
-//         // console.log(typeof max);
-//         // console.log("items.price" items.price)
-
-//         //Use if statement to look at price of every item in list and compare 
-//         // the price to see if it needs to be added into new array
-//         if (fullArray[j].price <= max && fullArray[j].price >= least) {
-//             // console.log("console log after if", fullArray.price);
-//             newPriceRange.push(fullArray[j]);
-//         }
-//     } return newPriceRange;
-// };
-
-// var result = priceRange(items);
-
-// // priceRange(pricesArray);
-// console.log("Items that cost between $14.00USD and $18.00 USD: ", result);
-
-const priceRange = items.filter(function (item) {
-    if (item.price >= 14 && item.price <= 18) {
-        return item.price;
-    }
-});
-console.log('Items that cost between $14.00 USD and $18.00 USD:')
-priceRange.forEach(function (item) {
-    console.log(item);
-});
-
-
-// let britishPound = "";
-
-// title = items[j].title
-// price = items[j].price
-
-
-// function findGBP(fullArray) {
-//     // for (let j = 0; j < fullArray.length; j++) {
-//     //     title = items[j].title
-//     //     price = items[j].price
-//     //     if (fullArray[j].currency_code == 'GBP') {
-//     //         britishPound = title.concat(price);
-//     //     }
-
-//     // }
-//     // console.log(britishPound, "British Pound")
-//     // return britishPound;
-//     items.forEach(function (fullArray) {
-//         if (fullArray[j].currency_code == 'GBP') {
-//         console.log(fullArray.title + " costs " + fullArray.price);
-//     })
-//     console.log(britishPound, "British Pound")
-//     return britishPound;
-// }
-
-// var result1 = findGBP(items);
-// findGBP(items);
-// console.log(result1);
-
-// 1970s Schlitz Malt Liquor Glass Beer Pitcher costs £18
-
-
-
-const findGBP = items.filter(function (item) {
-
-    return item.currency_code === "GBP";
-});
-
-findGBP.forEach(function (item) {
-    console.log(item.title + " costs £" + item.price + '.');
-});
+items
+    .filter(function (item) {
+        return item.currency_code === "GBP";
+    })
+    .forEach(function (item) {
+        console.log(`${item.title} costs \u00a3${item.price}.`);
+    });
 
 /* Forgot I'm supposed to be using the four methods to write these functions,
 fixed it.*/
 
+//=================Failed Attempt====================
 
 // const materialWood = items.filter(function (item) {
 //     // console.log((item.materials === 'wood'), "material")
@@ -111,11 +48,34 @@ fixed it.*/
 //     console.log(item, "item");
 // }); 
 
-const woodMats = items.filter(function (item) {
-    return item.materials == 'wood';
-});
+//===========Items made of wood===================
 
-woodMats.forEach(function (item) {
-    console.log(item);
-});
+items
+    .filter(function (item) {
+        return item.materials.includes('wood');
+    })
+    .forEach(function (item) {
+        console.log(`${item.title} is made of wood.`)
+    });
 
+//=============Items with 8+ materials=============
+
+items
+    .filter(function (item) {
+        return item.materials.length >= 8;
+    })
+    .forEach(function (item) {
+        console.log(`${item.title} has ${item.materials.length} materials.`);
+        item.materials.forEach(function (material) {
+            console.log(material);
+        })
+    });
+
+//==========Items made by seller==============
+
+const itemsMadeBySeller = items
+    .filter(function (item) {
+        return item.who_made === 'i_did';
+    });
+
+console.log(`${itemsMadeBySeller.length} items were made by their sellers.`);
