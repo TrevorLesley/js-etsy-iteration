@@ -23,29 +23,37 @@ let least = 14;
 newPriceRange = [];
 
 
-function priceRange(fullArray) {
+// function priceRange(fullArray) {
 
-    for (let j = 0; j < fullArray.length; j++) {
-        // console.log("fullArray", fullArray[j])
-        // console.log("max", max)
-        // console.log(typeof max);
-        // console.log("items.price" items.price)
+//     for (let j = 0; j < fullArray.length; j++) {
+//         // console.log("fullArray", fullArray[j])
+//         // console.log("max", max)
+//         // console.log(typeof max);
+//         // console.log("items.price" items.price)
 
-        //Use if statement to look at price of every item in list and compare 
-        // the price to see if it needs to be added into new array
-        if (fullArray[j].price <= max && fullArray[j].price >= least) {
-            // console.log("console log after if", fullArray.price);
-            newPriceRange.push(fullArray[j]);
-        }
-    } return newPriceRange;
-};
+//         //Use if statement to look at price of every item in list and compare 
+//         // the price to see if it needs to be added into new array
+//         if (fullArray[j].price <= max && fullArray[j].price >= least) {
+//             // console.log("console log after if", fullArray.price);
+//             newPriceRange.push(fullArray[j]);
+//         }
+//     } return newPriceRange;
+// };
 
-var result = priceRange(items);
+// var result = priceRange(items);
 
-// priceRange(pricesArray);
-console.log("Items that cost between $14.00USD and $18.00 USD: ", result);
+// // priceRange(pricesArray);
+// console.log("Items that cost between $14.00USD and $18.00 USD: ", result);
 
-
+const priceRange = items.filter(function (item) {
+    if (item.price >= 14 && item.price <= 18) {
+        return item.price;
+    }
+});
+console.log('Items that cost between $14.00 USD and $18.00 USD:')
+priceRange.forEach(function (item) {
+    console.log(item);
+});
 
 
 // let britishPound = "";
@@ -92,3 +100,13 @@ findGBP.forEach(function (item) {
 
 /* Forgot I'm supposed to be using the four methods to write these functions,
 fixed it.*/
+
+
+// const materialWood = items.filter(function (item) {
+//     // console.log((item.materials === 'wood'), "material")
+//     return item.materials === 'wood';
+// });
+
+// materialWood.forEach(function (item) {
+//     console.log(item, "item");
+// }); 
