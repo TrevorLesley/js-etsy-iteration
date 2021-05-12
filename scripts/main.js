@@ -86,7 +86,7 @@ const findGBP = items.filter(function (item) {
     return item.currency_code === "GBP";
 });
 
-currencyCodeArray.forEach(function (item) {
+findGBP.forEach(function (item) {
     console.log(item.title + " costs " + item.price);
 });
 
