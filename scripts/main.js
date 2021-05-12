@@ -18,9 +18,9 @@ each array. Then, using the variable associated with the first function,
 I defined another variable expression to reduce the array of the prices to the 
 total sum, and then divided that sum by the length of the original array.*/
 
-let max = 18;
-let least = 14;
-newPriceRange = [];
+// let max = 18;
+// let least = 14;
+// newPriceRange = [];
 
 
 // function priceRange(fullArray) {
@@ -95,7 +95,7 @@ const findGBP = items.filter(function (item) {
 });
 
 findGBP.forEach(function (item) {
-    console.log(item.title + " costs " + item.price);
+    console.log(item.title + " costs £" + item.price + '.');
 });
 
 /* Forgot I'm supposed to be using the four methods to write these functions,
@@ -110,3 +110,12 @@ fixed it.*/
 // materialWood.forEach(function (item) {
 //     console.log(item, "item");
 // }); 
+
+const woodMats = items.filter(function (item) {
+    return item.materials == 'wood';
+});
+
+woodMats.forEach(function (item) {
+    console.log(item);
+});
+
