@@ -5,10 +5,6 @@ const pricesArray = items.map(function (item) {
 // #1
 const totalPrice = pricesArray.reduce(function (total, i) {
     return total + i;
-    // let average =
-    // console.log(average);
-    totalPrice / items.length;
-
 });
 
 console.log(totalPrice / items.length);
@@ -79,3 +75,23 @@ const itemsMadeBySeller = items
     });
 
 console.log(`${itemsMadeBySeller.length} items were made by their sellers.`);
+
+
+//============Average Price=================
+
+const averagePrice = (priceOfAllItems2 / items.length).toFixed(2);
+    console.log(`The average price is $${Math.floor(averagePrice * 100) / 100}.`)
+
+    console.log(`Items that cost between $14.00 and $18.00 USD:`);
+    items
+        .filter(function (item) {
+            return item.currency_code === 'USD' && item.price >= 14 && item.price <= 18;
+        })
+        .map(function (item) {
+            return item.title;
+        })
+        .forEach(function (item) {
+            console.log(item);
+        });
+
+        
